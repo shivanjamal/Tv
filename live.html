@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📡 Football TV – پەخشە ڕاستەوخۆ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo" />
+      <h1><span>KURD TV</span></h1>
+    </div>
+
+    <div class="header-actions">
+      <button class="theme-toggle" title="گۆڕینی تێم" aria-label="گۆڕینی تێم">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="theme-toggle__within" height="1.4em" width="1.4em" viewBox="0 0 32 32" fill="currentColor">
+          <clipPath id="theme-toggle__within__clip">
+            <path d="M0 0h32v32h-32ZM6 16A1 1 0 0026 16 1 1 0 006 16" />
+          </clipPath>
+          <g clip-path="url(#theme-toggle__within__clip)">
+            <path d="M30.7 21.3 27.1 16l3.7-5.3c.4-.5.1-1.3-.6-1.4l-6.3-1.1-1.1-6.3c-.1-.6-.8-.9-1.4-.6L16 5l-5.4-3.7c-.5-.4-1.3-.1-1.4.6l-1 6.3-6.4 1.1c-.6.1-.9.9-.6 1.3L4.9 16l-3.7 5.3c-.4.5-.1 1.3.6 1.4l6.3 1.1 1.1 6.3c.1.6.8.9 1.4.6l5.3-3.7 5.3 3.7c.5.4 1.3.1 1.4-.6l1.1-6.3 6.3-1.1c.8-.1 1.1-.8.7-1.4zM16 25.1c-5.1 0-9.1-4.1-9.1-9.1 0-5.1 4.1-9.1 9.1-9.1s9.1 4.1 9.1 9.1c0 5.1-4 9.1-9.1 9.1z" />
+          </g>
+          <path class="theme-toggle__within__circle" d="M16 7.7c-4.6 0-8.2 3.7-8.2 8.2s3.6 8.4 8.2 8.4 8.2-3.7 8.2-8.2-3.6-8.4-8.2-8.4zm0 14.4c-3.4 0-6.1-2.9-6.1-6.2s2.7-6.1 6.1-6.1c3.4 0 6.1 2.9 6.1 6.2s-2.7 6.1-6.1 6.1z" />
+          <path class="theme-toggle__within__inner" d="M16 9.5c-3.6 0-6.4 2.9-6.4 6.4s2.8 6.5 6.4 6.5 6.4-2.9 6.4-6.4-2.8-6.5-6.4-6.5z" />
+        </svg>
+      </button>
+
+      <a href="index.html" class="back-btn">🏠 مال</a>
+    </div>
+  </header>
+
+  <main class="live-container">
+    <div class="video-wrapper">
+      <iframe id="livePlayer" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="info-box">
+      <h2 id="channelTitle">پەخشی راستەوخۆ⚽</h2>
+      <p>لڤێرێ دشێی یارییا فەرمی یا کەنالی بێ بەرامبەر و بساناهی ببینی.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 فوتپۆل تی ڤی | لاپەرا پەخشا راستەوخۆ | لایێ <span>شڤان جه مال</span></p>
+  </footer>
+
+  <script>
+    // theme toggle
+    const toggle = document.querySelector(".theme-toggle");
+    if (toggle) toggle.addEventListener("click", () => document.body.classList.toggle("light"));
+
+    // channel logic
+    const urlParams = new URLSearchParams(window.location.search);
+    const ch = urlParams.get("ch");
+    const player = document.getElementById("livePlayer");
+    const title = document.getElementById("channelTitle");
+    let src = "", name = "";
+
+    switch (ch) {
+      case "bein":
+        src = "https://direct.aflam4you.net/embed.php?vid=68";
+        name = "beIN Sports HD";
+        break;
+        case "bein2":
+        src = "https://direct.aflam4you.net/embed.php?vid=2";
+        name = "beIN Sports 2 HD ";
+        break;
+        case "bein3":
+        src = "https://direct.aflam4you.net/embed.php?vid=1";
+        name = "beIN Sports 3 HD ";
+        break;
+        case "bein4":
+        src = "https://direct.aflam4you.net/embed.php?vid=3";
+        name = "beIN Sports 4 HD ";
+        break;
+        case "bein5":
+        src = "https://direct.aflam4you.net/embed.php?vid=73";
+        name = "beIN Sports 5 HD ";
+        break;
+        case "bein6":
+        src = "https://direct.aflam4you.net/embed.php?vid=74";
+        name = "beIN Sports 6 HD ";
+        break;
+        case "bein7":
+        src = "https://direct.aflam4you.net/embed.php?vid=75";
+        name = "beIN Sports 7 HD ";
+        break;
+        case "bein8":
+        src = "https://direct.aflam4you.net/embed.php?vid=76";
+        name = "beIN Sports 8 HD ";
+        break;
+        case "bein9":
+        src = "https://direct.aflam4you.net/embed.php?vid=69";
+        name = "beIN Sports 9 HD ";
+        break;
+        case "bein10":
+        src = "https://direct.aflam4you.net/embed.php?vid=30";
+        name = "beIN Sports 10 HD ";
+        break;
+        case "bein11":
+        src = "https://direct.aflam4you.net/embed.php?vid=28";
+        name = "beIN Sports 11 HD ";
+        break;
+        case "bein12":
+        src = "https://direct.aflam4you.net/embed.php?vid=29";
+        name = "beIN Sports 12 HD ";
+        break;
+        case "duhok":
+        src = "https://www.elahmad.com/tv/watchtv.php?id=duhok_sport";
+        name = "duhok Sports ";
+        break;
+        case "zaxo":
+        src = "http://www.elahmad.com/tv/teledunet.php?id=9966839";
+        name = "zaxo Sports ";
+        break;
+    }
+
+    player.src = src;
+    title.textContent = `${name} ⚽`;
+  </script>
+</body>
+</html>
