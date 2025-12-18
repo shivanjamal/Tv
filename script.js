@@ -229,10 +229,10 @@ const SmartSearch = {
     const filterBar = document.createElement('div');
     filterBar.className = 'filter-bar';
     filterBar.innerHTML = `
-      <button class="filter-btn active" data-filter="all">همه</button>
-      <button class="filter-btn" data-filter="favorites">دڵخوازەکان</button>
-      <button class="filter-btn" data-filter="recent">نوێکان</button>
-      <button class="filter-btn" data-filter="popular">بەناوبانگ</button>
+      <button class="filter-btn active" data-filter="all">هەمی</button>
+      <button class="filter-btn" data-filter="favorites">دڵخواز</button>
+      <button class="filter-btn" data-filter="recent">یێن نوو</button>
+      <button class="filter-btn" data-filter="popular">ب ناڤودەنگ</button>
     `;
     
     const sectionTitle = document.querySelector('.section-title');
@@ -393,7 +393,7 @@ const FavoritesManager = {
     const favoriteBtn = document.createElement('button');
     favoriteBtn.className = `favorite-btn ${isFavorite ? 'active' : ''}`;
     favoriteBtn.innerHTML = isFavorite ? '⭐' : '☆';
-    favoriteBtn.title = isFavorite ? 'لابردنی لە دڵخوازەکان' : 'زیادکردن بۆ دڵخوازەکان';
+    favoriteBtn.title = isFavorite ? ' ژێبرنا ژ دلخوازان' : ' زێدەکرن بۆ دڵخوازان';
     favoriteBtn.setAttribute('aria-label', isFavorite ? 'Remove from favorites' : 'Add to favorites');
     
     favoriteBtn.addEventListener('click', (e) => {
@@ -533,8 +533,8 @@ const ErrorHandler = {
         if (container) {
           container.innerHTML = `
             <div class="error-message">
-              <p>پەخشەکە بەردەست نییە</p>
-              <button onclick="location.reload()">دووبارە هەوڵ بدە</button>
+              <p> پەخشێ بەردەست نینە</p>
+              <button onclick="location.reload()"> ژ نوو هەول بده‌ </button>
             </div>
           `;
         }
@@ -623,11 +623,11 @@ const ChannelPulse = {
     let level, label, color;
     if (activity > 70) {
       level = 'high';
-      label = 'زۆر چالاک';
+      label = 'گه‌له‌ك چالاك';
       color = '#10b981';
     } else if (activity > 40) {
       level = 'medium';
-      label = 'چالاک';
+      label = 'چالاك';
       color = '#f59e0b';
     } else {
       level = 'low';
@@ -824,9 +824,9 @@ const ChannelDNA = {
     // DNA traits based on patterns
     const traits = [];
     if (isFavorite) traits.push('دڵخواز');
-    if (viewCount > 5) traits.push('زۆر بینراو');
-    if (viewCount > 0 && viewCount <= 2) traits.push('نوێ');
-    if (avgWatchTime < 86400000) traits.push('نزیک');
+    if (viewCount > 5) traits.push(' گه‌له‌كا دیتى');
+    if (viewCount > 0 && viewCount <= 2) traits.push('نوی');
+    if (avgWatchTime < 86400000) traits.push('نێزیک');
     
     // Generate unique color combination
     const colorPalettes = [
@@ -838,7 +838,7 @@ const ChannelDNA = {
     const paletteIndex = channelId.charCodeAt(0) % colorPalettes.length;
     const colors = colorPalettes[paletteIndex];
     
-    return { traits: traits.length > 0 ? traits : ['ناشناس'], colors };
+    return { traits: traits.length > 0 ? traits : ['نه‌ناس'], colors };
   }
 };
 
@@ -855,7 +855,7 @@ const ChannelRoulette = {
     const rouletteBtn = document.createElement('button');
     rouletteBtn.className = 'roulette-btn';
     rouletteBtn.innerHTML = '🎲';
-    rouletteBtn.title = 'کاناڵی هەڕەمەکی';
+    rouletteBtn.title = ' کانالا بێسه‌رووبه‌ر';
     rouletteBtn.setAttribute('aria-label', 'Random Channel');
     
     rouletteBtn.addEventListener('click', () => {
