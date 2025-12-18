@@ -147,7 +147,7 @@ const SmartSearch = {
         type="text" 
         id="channelSearch" 
         class="search-input" 
-        placeholder="گەڕان بە کاناڵەکان..." 
+        placeholder="گەڕیان ل کەناڵان... " 
         autocomplete="off"
       />
       <button class="search-clear" id="searchClear" style="display: none;">✕</button>
